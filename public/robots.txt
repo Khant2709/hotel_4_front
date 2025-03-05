@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sanmarinosochi.ru
+
+# Sitemaps
+Sitemap: https://sanmarinosochi.ru/sitemap.xml

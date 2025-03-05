@@ -1,0 +1,33 @@
+.container, .containerImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.containerImages {
+  gap: 1rem;
+}
+
+.text {
+  text-indent: 30px;
+  font-size: calc(14px + (28 - 14) * (100vw - 480px) / (1920 - 480));
+  align-self: center;
+
+  margin: 2rem 0;
+}
+
+.showImage {
+  grid-template-columns: 1fr;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

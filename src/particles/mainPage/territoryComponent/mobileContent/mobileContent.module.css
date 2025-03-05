@@ -1,0 +1,29 @@
+.text {
+  text-indent: 30px;
+  font-size: 1rem;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiperSlide, .image {
+  width: 250px;
+  height: 250px;
+}
+
+.image {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 480px) {
+  .swiperSlide, .image {
+    width: 200px;
+    height: 200px;
+  }
+}

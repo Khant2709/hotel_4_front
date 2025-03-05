@@ -1,0 +1,37 @@
+.wrapperFormSearch {
+  width: var(--widthComputer);
+  margin: 0 auto;
+}
+
+.marginBt {
+  margin-bottom: var(--marginCalc);
+}
+
+.errorApartmentsEmpty {
+  font-size: calc(24px + (40 - 24) * (100vw - 480px) / (1920 - 480));
+  color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+
+  padding: 2rem 3rem;
+  background-color: rgba(255, 79, 79, 0.2);
+  border: 3px solid #750000;
+  border-radius: var(--BR12);
+}
+
+@media (max-width: 1600px) {
+  .wrapperFormSearch {
+    width: var(--width1600);
+  }
+}
+
+@media (max-width: 1250px) {
+  .wrapperFormSearch {
+    width: var(--width1250);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapperFormSearch {
+    display: none;
+  }
+}

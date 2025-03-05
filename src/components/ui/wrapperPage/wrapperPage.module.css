@@ -1,0 +1,52 @@
+.fullWidth {
+  width: 100%;
+  min-height: 55vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  overflow-x: hidden;
+}
+
+.centralWidth {
+  width: var(--widthComputer);
+  min-height: 55vh;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hasMargin {
+  margin: 4rem auto;
+}
+
+@media (max-width: 1600px) {
+  .centralWidth {
+    width: var(--width1600);
+  }
+}
+
+@media (max-width: 1250px) {
+  .centralWidth {
+    width: var(--width1250);
+  }
+}
+
+@media (max-width: 768px) {
+  .fullWidth, .centralWidth {
+    gap: 2rem;
+  }
+
+  .centralWidth {
+    overflow-x: hidden;
+  }
+
+  .hasMargin {
+    margin: 2rem auto;
+  }
+}

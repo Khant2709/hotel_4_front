@@ -1,0 +1,63 @@
+.containerMain {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 2rem;
+}
+
+.wrapperHotels {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.subtitle {
+  font-size: calc(16px + (24 - 16) * (100vw - 480px) / (1920 - 480));
+  color: var(--colorSeconderyTextBlack);
+
+}
+
+/* Блок отеля */
+.containerHotel {
+  font-size: calc(14px + (20 - 14) * (100vw - 480px) / (1920 - 480));
+  padding: 1rem 2rem;
+  background-color: rgba(227, 247, 248, 0.4);
+  border: 3px solid var(--colorWave);
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.activeHotel {
+  background-color: var(--colorMainTextWhite);
+}
+
+.nameHotel {
+  font-size: calc(20px + (32 - 20) * (100vw - 480px) / (1920 - 480));
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.addressHotel {
+  margin-bottom: 1rem;
+}
+
+.websiteHotel {
+  text-decoration: underline;
+  color: var(--colorWave);
+}
+
+.websiteHotel:hover {
+  color: var(--colorMainTextBlack);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .containerMain, .wrapperHotels {
+    grid-template-columns: 1fr;
+  }
+}

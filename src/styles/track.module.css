@@ -1,0 +1,47 @@
+.wrapperPage {
+  width: 100%;
+  margin: var(--marginCalc) 0;
+}
+
+.title {
+  font-size: calc(24px + (32 - 24) * (100vw - 480px) / (1920 - 480));
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subTitle {
+  width: 100%;
+
+  font-size: calc(20px + (28 - 20) * (100vw - 480px) / (1920 - 480));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 1rem;
+
+  align-self: flex-start;
+}
+
+.text {
+  width: 100%;
+  font-size: calc(16px + (24 - 16) * (100vw - 480px) / (1920 - 480));
+  text-indent: 30px;
+}
+
+.horizontalImg {
+  width: 80%;
+  height: auto;
+  border-radius: var(--BR12);
+}
+
+.verticalImg {
+  width: 30%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .horizontalImg {
+    width: 100%;
+  }
+
+  .verticalImg {
+    width: 60%;
+  }
+}

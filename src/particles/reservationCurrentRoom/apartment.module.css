@@ -1,0 +1,6 @@
+/*Проверить на дубликаты*/
+@media (max-width: 768px) {
+  .wrapperFormSearch {
+    display: none;
+  }
+}

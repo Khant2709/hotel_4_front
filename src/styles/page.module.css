@@ -1,0 +1,9 @@
+.faqWrapperPage{
+    margin: var(--marginCalc) 0;
+}
+
+@media (max-width: 768px) {
+    .wrapperForm {
+        display: none;
+    }
+}
