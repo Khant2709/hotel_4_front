@@ -63,6 +63,7 @@ const prepareReservationData = ({dataReservation, fields}) => {
 const WindowPopUp = () => {
   const {isPopUpOpen, openClosePopUp, dataReservation, clearReservation} = useReservationStore();
   const [fields, setFields] = useState(fieldsDefault);
+  const [isDisable, setIsDisable] = useState(false);
   const fieldCheckbox = fields.find((field) => field.type === "checkbox");
 
   const checkDataReservation = useMemo(
@@ -97,6 +98,9 @@ const WindowPopUp = () => {
 
   const sendReservation = async () => {
     if (checkDataReservation && checkFields) {
+      notifyShowToast('info', 'Заявка отправлена, дождитесь ответа, это займет не более 30сек.');
+      setIsDisable(true);
+
       const finishData = prepareReservationData({dataReservation, fields});
       const result = await actionClientsAPI.createReservation(finishData);
 
@@ -106,6 +110,7 @@ const WindowPopUp = () => {
             result?.data?.message ||
             "Благодарим за бронирование, прошло успешно. Вам должно придти письмо на указанную почту (в течении часа), если письмо не пришло напишите или позвоните нам."
         );
+        setIsDisable(false)
         closeWindow();
       } else {
         notifyShowToast(
@@ -113,6 +118,7 @@ const WindowPopUp = () => {
             result?.response?.data?.errorText ||
             "Произшла ошибка при бронировании, попробуйте пожалуйста заново."
         );
+        setIsDisable(false)
       }
     }
   };
@@ -131,7 +137,7 @@ const WindowPopUp = () => {
           handleFieldsChange={handleFieldsChange}
           hotelName={dataReservation?.nameHotel || "Ошибка"}
           apartmentName={dataReservation?.nameApartment || "Ошибка"}
-          disableBtn={!checkDataReservation || !checkFields}
+          disableBtn={!checkDataReservation || !checkFields || isDisable}
           closeWindow={closeWindow}
           dataReservationFields={dataReservationFields}
           sendReservation={sendReservation}

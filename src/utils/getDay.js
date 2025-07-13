@@ -1,5 +1,11 @@
 import {MIN_RESERVATION_DAYS, PERIODS_MONTH_DAY} from "../config/envData";
 
+const formatDate = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // добавляем 0 перед числами меньше 10
+  const day = String(date.getDate()).padStart(2, "0"); // добавляем 0 перед числами меньше 10
+  return `${year}-${month}-${day}`;
+};
 
 export const getToday = () => {
   const today = new Date();
@@ -22,6 +28,21 @@ export const getNextDay = () => {
       .padStart(2, "0"); // добавляем 0 перед числами меньше 10
   return `${year}-${month}-${day}`;
 };
+
+export const getPeriodWork = () => {
+  const today = new Date();
+  const month = today.getMonth();
+
+  // Если месяц больше месяца конца сезона
+  const year = month < 10 ? today.getFullYear() : today.getFullYear() + 1;
+  const startDatePeriod = PERIODS_MONTH_DAY.firstPeriod.startDate;
+  const endDatePeriod = PERIODS_MONTH_DAY.fourthPeriod.endDate;
+
+  return {
+    startSeason: formatDate(new Date(`${year}-${startDatePeriod}`)),
+    endSeason: formatDate(new Date(`${year}-${endDatePeriod}`))
+  }
+}
 
 // Функция на получение дат заезда(дата начала сезона) и дата выезда(дата начала сезона + MIN_RESERVATION_DAYS)
 export const getDayStartSeason = () => {

@@ -3,17 +3,17 @@ import {ContentInformationPrice} from "./content";
 import {PERIODS_MONTH_DAY} from "../../../config/envData";
 
 
-const formatDate = (date) => date.replace("-", ".");
+const formatDate = (date) => date.split('-').reverse().join('.');
 
 const WrapperInformationPrice = ({priceArray}) => {
   if (!priceArray || priceArray.length === 0) return null;
 
-  const periods = Object.values(PERIODS_MONTH_DAY)
-      .map((period, index) => ({
+    const periods = Object.values(PERIODS_MONTH_DAY).map((period, index) => ({
         startDate: formatDate(period.startDate),
         endDate: formatDate(period.endDate),
         priceIndex: index,
-      }));
+    }));
+
   return (
       <ContentInformationPrice
           periodsDate={periods}
